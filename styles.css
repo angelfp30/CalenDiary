@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+}
+.day{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    margin: 100px auto;
+}
+.day-text{
+    resize: none;
+    width: 90px;
+    height: 90px;
+    margin: 5px;
+    background: transparent;
+    border: none;
+}
+.day-text:focus{
+    outline: none;
+
+}
