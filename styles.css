@@ -2,25 +2,158 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 body{
+    background-color: #2c2c2c;
+}
+.container{
+    display: flex;
+}
+.container-2{
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 20px 20px 20px 270px;
+
+}
+.month{
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    width: 80vw;
+}
+.days-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.day-card{
+    width: 185px;
+    height: 200px;
     background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 6px 6px 5px black;
+
 }
 .day{
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    margin: 100px auto;
+    width: 96%;
+    height: 15%;
+    text-align: start;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-left: 5px;
+    margin-bottom: 0;
 }
+.day button{
+    position: relative;
+    top: -10px;
+    right: -125px;
+    border-style: none;
+    padding: 3px 8px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: 0.2s;
+}
+.day button:hover{
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+.day button:active{
+    background-color: white;
+}
+
 .day-text{
     resize: none;
-    width: 90px;
-    height: 90px;
-    margin: 5px;
+    width: 96%;
+    height: 80%;
+    margin: 0 5px;
     background: transparent;
     border: none;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    scrollbar-width: thin;
+    color: black;
+    margin-top: 0;
 }
 .day-text:focus{
     outline: none;
-
+}
+.day-card:focus-within{
+    border: 1px solid black;
+    box-shadow: 8px 8px 5px black;
+}
+.head{
+    color: white;
+    font-size: 2.3rem;
+    margin: 35px 10px 0 0;
+    text-align: center;
+}
+section{
+    height: 100vh;
+    width: 220px;
+    background-color: #1a1a1a;
+    position: fixed;
+}
+.sidebar{
+    color: #e2e0e0;
+    font-size: 1.2rem;
+    margin: 30px 10px 0 0;
+    line-height: 1.5;
+    text-align: center;
+}
+.control-buttons{
+    text-align: center;
+    margin: 30px 10px 0 0;
+ }
+.add{
+    padding: 10px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: white;
+    font-size: 1.1rem;
+    color: black;
+    transition: 0.16s;
+}
+.month-button{
+    margin-top: 30px;
+}
+.add:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.add:active{
+    background-color: #1a1a1a;
+}
+.delete-month{
+    border-style: none;
+    padding: 3px 6px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: 0.2s;
+    color: white;
+    background-color: #2c2c2c;
+    position: relative;
+    top: 35px;
+    left: -26px;
+}
+.delete-month:hover{
+    background-color: black;
+    cursor: pointer;
+}
+.delete-month:active{
+    background-color: #2c2c2c;
+}
+.save{
+    margin-top: 30px;
+}
+.month-container{
+    margin-left: 10px;
 }
