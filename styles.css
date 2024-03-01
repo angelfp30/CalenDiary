@@ -4,8 +4,15 @@
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+:root{
+    --dark-color: #231F20;
+    --dark-blue: #2D3047;
+    --orange: #F42C04;
+    --white: #EFE6DD;
+    --light-back: #F3DFA2;
+}
 body{
-    background-color: #2c2c2c;
+    background-color: var(--light-back);
 }
 .container{
     display: flex;
@@ -15,10 +22,10 @@ body{
     gap: 25px;
     flex-wrap: wrap;
     margin: 20px 20px 20px 270px;
-
+    overflow: hidden;
 }
 .month{
-    color: white;
+    color: black;
     font-size: 1.5rem;
     margin-top: 10px;
     width: 80vw;
@@ -31,11 +38,12 @@ body{
 .day-card{
     width: 185px;
     height: 200px;
-    background-color: white;
+    background-color: black;
     border-radius: 10px;
     padding: 5px;
-    box-shadow: 6px 6px 5px black;
-
+    transition: 0.4s;
+    animation-name: Appear;
+    animation-duration: 0.5s;
 }
 .day{
     width: 96%;
@@ -46,25 +54,28 @@ body{
     margin-top: 3px;
     margin-left: 5px;
     margin-bottom: 0;
+    color: white;
 }
 .day button{
     position: relative;
-    top: -10px;
-    right: -125px;
+    top: -8px;
+    right: -126px;
     border-style: none;
-    padding: 3px 8px;
+    padding: 3px 6px;
     font-weight: bold;
     border-radius: 10px;
-    background-color: white;
+    background-color: transparent;
+    color: white;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     transition: 0.2s;
 }
 .day button:hover{
-    background-color: #eeeeee;
+    background-color: #fd0707;
+    color: white;
     cursor: pointer;
 }
 .day button:active{
-    background-color: white;
+    background-color: var(--white);
 }
 
 .day-text{
@@ -77,44 +88,50 @@ body{
     font-size: 1.1rem;
     line-height: 1.5;
     scrollbar-width: thin;
-    color: black;
+    color: white;
     margin-top: 0;
 }
 .day-text:focus{
     outline: none;
 }
 .day-card:focus-within{
-    border: 1px solid black;
-    box-shadow: 8px 8px 5px black;
+    background-color: #0c0c0c;
+    scale: 1.01;
+    transition: 0.2s;
+}
+.day-card:hover{
+    background-color: #0c0c0c;
 }
 .head{
-    color: white;
+    color: var(--white);
     font-size: 2.3rem;
     margin: 35px 10px 0 0;
     text-align: center;
 }
 section{
     height: 100vh;
-    width: 220px;
-    background-color: #1a1a1a;
+    width: 210px;
     position: fixed;
+    background-color: black;
 }
 .sidebar{
-    color: #e2e0e0;
+    color: #d1d1d1;
     font-size: 1.2rem;
     margin: 30px 10px 0 0;
     line-height: 1.5;
     text-align: center;
 }
 .control-buttons{
-    text-align: center;
-    margin: 30px 10px 0 0;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    margin: 40px 30px;
  }
 .add{
     padding: 10px;
     border-radius: 5px;
     border-style: none;
-    background-color: white;
+    background-color: var(--white);
     font-size: 1.1rem;
     color: black;
     transition: 0.16s;
@@ -123,37 +140,85 @@ section{
     margin-top: 30px;
 }
 .add:hover{
-    background-color: black;
+    background-color: var(--orange);
     color: white;
     cursor: pointer;
+    scale: 1.1;
 }
 .add:active{
-    background-color: #1a1a1a;
+    background-color: #d31900;
 }
 .delete-month{
     border-style: none;
     padding: 3px 6px;
     font-weight: bold;
     border-radius: 10px;
-    background-color: white;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     transition: 0.2s;
-    color: white;
-    background-color: #2c2c2c;
-    position: relative;
-    top: 35px;
-    left: -26px;
+    background-color: black;
+    color: var(--white);
 }
 .delete-month:hover{
-    background-color: black;
     cursor: pointer;
+    background-color: #fd0707;
 }
 .delete-month:active{
     background-color: #2c2c2c;
 }
 .save{
     margin-top: 30px;
+    background-color: var(--orange);
+    color: white;
+    padding: 15px 18px;
+}
+.save:hover{
+    background-color: #e91b00;
+    color: white;
+    scale: 1.1;
+}
+.save:active{
+    background-color: #d31900;
 }
 .month-container{
     margin-left: 10px;
+}
+@media (max-width: 500px) {
+    section{
+        width: 160px;
+    }
+    .head{
+        font-size: 1.7rem;
+        margin-left: 5px;
+    }
+    .sidebar{
+        font-size: 0.9rem;
+        margin-left: 5px;
+    }
+    .container-2{
+        margin-left: 190px;
+    }
+}
+@media (max-width: 392px) {
+    .container-2{
+        margin-left: 160px;
+        margin-right: 8px;
+    }
+    section{
+        width: 150px;
+    }
+}
+
+@keyframes Appear {
+    from{
+        transform: scale(0, 0);
+    }
+    to{
+        transform: scale(1, 1);
+    }
+}
+@keyframes Disappear {
+    to{
+        display: none;
+        opacity: 0;
+    }
 }
