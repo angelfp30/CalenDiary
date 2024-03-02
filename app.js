@@ -5,6 +5,7 @@ const mainContainer = document.querySelector('.container-2');
 const displayedMonth = document.querySelector('.month');
 const saveButton = document.querySelector('.save');
 
+// The function gets the present day
 function addNewDay(){
     const day = new Date();
     const today = day.getDate();
@@ -19,6 +20,7 @@ function addNewDay(){
     mainContainer.appendChild(newDay);
     saveData();
 }
+// The function gets the present month
 function addNewMonth(){
     const today = new Date();
     const month = today.getMonth();
@@ -41,6 +43,8 @@ addMonthButton.addEventListener('click', () => {
     addNewMonth()
     saveData();
 })
+// Detect if the click event is happening in the
+// delete day or delete month button
 mainContainer.addEventListener("click", function(event) {
     if (event.target.classList.contains('delete-month')) {
         const targetedMonth = event.target.closest('.month');
@@ -52,6 +56,7 @@ mainContainer.addEventListener("click", function(event) {
         saveData();
     }
 });
+
 saveButton.addEventListener('click', (event) => {
     event.preventDefault();
     saveData();
